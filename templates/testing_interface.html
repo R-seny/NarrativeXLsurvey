@@ -1,0 +1,74 @@
+<div class="testing_interface_body">
+
+        <div id="workspace">
+
+            <div id="problem_counter_header" style="margin-left: 45%;">Survey progress: <span id="problems_done">1</span>/<span id="problems_total">10</span></div>
+
+            <div id="original">
+                <h1 class="text" id="booksnippet">Book snippet</h1>
+                <p id="snippet_text" style="white-space: pre-line"></p>
+            </div>
+            <hr>
+            <div id="choices">
+
+                <div id="summaries">
+                    <div class="text">
+                        <h2>Summary 1:</h2> <p id="summary1"></p>
+                        <hr>
+                        <h2>Summary 2:</h2> <p id="summary2"></p>
+
+                    </div>
+                </div>
+
+                <hr>
+                <h1>Questions:</h1>
+                <form id="summaryquestions" action="trial" method="post">
+
+                    <!-- beginning of a question -->
+                    <div class="row question">
+                        <div class="col-md-8">
+                            Did <b>Summary 1</b> reasonably represent the text?
+                        </div>
+                        <div class="col-md-4">
+                            <select id="sum1accurate" name="summary1accurate">
+                                <option value="No answer" SELECTED>No answer</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- beginning of a question -->
+                    <div class="row question">
+                        <div class="col-md-8">
+                            Did <b>Summary 2</b> reasonably represent the text?
+                        </div>
+                        <div class="col-md-4">
+                            <select id="sum2accurate" name="summary1accurate">
+                                <option value="No answer" SELECTED>No answer</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- beginning of a question -->
+                    <div class="row question">
+                        <div class="col-md-8">
+                            <b>Which</b> summary was more accurate?
+                        </div>
+                        <div class="col-md-4">
+                            <select id="whichmore" name="whichmore">
+                                <option value="No answer" SELECTED>No answer</option>
+                                <option value="1">Summary 1</option>
+                                <option value="2">Summary 2</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+
+         </div>
+        <hr>
+        <button id="submit_answer" class="btn btn-primary btn-lg"> Submit </button>
+
+</div>

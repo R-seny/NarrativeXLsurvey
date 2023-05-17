@@ -1,0 +1,149 @@
+<div id="container-questionnaire">
+    <h1>Almost done!</h1>
+
+    <hr />
+
+    <p>You are almost finished!  Thank you for your contributions to science. You will be eligible for full payment once you answer the following questions.</p>
+
+    <div class="instructions well">
+
+        <form id="postquiz" action="debrief" method="post">
+
+
+
+            <!-- beginning of a question -->
+            <div class="row question">
+                <div class="col-md-8">
+                    What is your level of English proficiency:
+                </div>
+                <div class="col-md-4">
+                    <select id="english" name="english">
+                        <option value="No answer" SELECTED>No answer</option>
+                        <option value="I do not speak English">I do not speak English</option>
+                        <option value="beginner">beginner</option>
+                        <option value="intermediate">intermediate</option>
+                        <option value="advanced">advanced</option>
+                        <option value="fluent">fluent</option>
+                    </select>
+                </div>
+            </div>
+            <!-- end of a question -->
+
+            <!-- beginning of a question -->
+            <div class="row question">
+                <div class="col-md-8">
+                    What is your age?:
+                </div>
+                <div class="col-md-4">
+                    <select id="age" name="age">
+                        <option value="No answer" SELECTED>No answer</option>
+                        <option value="71+">71+</option>
+                        <option value="66-70">66-70</option>
+                        <option value="61-6">61-65</option>
+                        <option value="56-60">56-60</option>
+                        <option value="51-55">51-55</option>
+                        <option value="46-50">46-50</option>
+                        <option value="41-45">41-45</option>
+                        <option value="36-40">36-40</option>
+                        <option value="31-35">31-35</option>
+                        <option value="25-30">25-30</option>
+                        <option value="18-24">18-24</option>
+                    </select>
+                </div>
+            </div>
+            <!-- end of a question -->
+
+
+            <!-- beginning of a question -->
+            <div class="row question">
+                <div class="col-md-8">
+                    What is your gender:
+                </div>
+                <div class="col-md-4">
+                    <select id="gender" name="gendert">
+                        <option value="No answer" SELECTED>No answer</option>
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                        <option value="other">other</option>
+                    </select>
+                </div>
+            </div>
+            <!-- end of a question -->
+
+
+            <!-- beginning of a question -->
+            <div class="row question">
+                <div class="col-md-8">
+                    On a scale of 1-10 (where 10 is the most engaged), please rate how <b>ENGAGING</b> you found the tasks:
+                </div>
+                <div class="col-md-4">
+                    <select id="engagement" name="engagement">
+                        <option value="No answer" SELECTED>No answer</option>
+                        <option value="10">10 - Very engaging</option>
+                        <option value="9">9</option>
+                        <option value="8">8</option>
+                        <option value="7">7</option>
+                        <option value="6">6</option>
+                        <option value="5">5 - Moderately</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0">0 - Not engaged</option>
+                    </select>
+                </div>
+            </div>
+            <!-- end of a question -->
+
+
+            <!-- beginning of a question -->
+            <div class="row question">
+                <div class="col-md-8">
+                    On a scale of 1-10 (where 10 is the most difficult), please rate how <b>DIFFICULT</b> you found the tasks:
+                </div>
+                <div class="col-md-4">
+                    <select id="difficulty" name="difficulty">
+                        <option value="No answer" SELECTED>No answer</option>
+                        <option value="10">10 - Very difficult</option>
+                        <option value="9">9</option>
+                        <option value="8">8</option>
+                        <option value="7">7</option>
+                        <option value="6">6</option>
+                        <option value="5">5 - Moderately difficult</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0">0 - Not difficult at all</option>
+                    </select>
+                </div>
+            </div>
+            <!-- end of a question -->
+
+            <!-- beginning of a question -->
+            <p>Feedback and suggestions:</p>
+            <textarea id="freeform_feedback" name="freeform_feedback"  placeholder="If you have any additional feedback or suggestions, please write it here."></textarea>
+            <!-- end of a question -->
+
+
+        </form>
+    </div>
+
+    <hr />
+
+    <div class="instructionsnav">
+        <div class="row">
+            <div class="col-xs-2">
+            </div>
+            <div class="col-xs-7">
+            </div>
+            <div class="col-xs-3">
+                <button type="button" id="next" value="next" class="btn btn-primary btn-lg continue">
+                    Continue <span class="glyphicon glyphicon-arrow-right"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+</div>

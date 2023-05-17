@@ -1,0 +1,40 @@
+<div id="container-instructions">
+
+	<h1>Prolific ID</h1>
+
+	<hr />
+
+	<div class="instructions well">
+
+    <h1>Please copy your Prolific ID in the field below</h1>
+
+    <hr />
+
+    <label for="prolificid">Your prolific ID:</label>
+    <input type="text" id="prolificid" name="prolificid">
+
+	</div>
+
+	<hr />
+    <script type="text/javascript">
+    $.ajaxSetup({
+    	async: false
+	});
+    </script>
+
+    <div class="instructionsnav">
+        <div class="row">
+            <div class="col-xs-2">
+            	<!-- no previous button on first screen -->
+            </div>
+            <div class="col-xs-8">
+            </div>
+            <div class="col-xs-2">
+                <button type="button" id="next" value="next" class="btn btn-primary btn-lg continue" onclick="saveProlificID()">
+                Next <span class="glyphicon glyphicon-arrow-right"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>

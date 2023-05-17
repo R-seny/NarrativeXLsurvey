@@ -1,0 +1,259 @@
+
+body {
+    padding:0px;
+    margin: 0px;
+    background-color: white;
+    color: black;
+    font-weight: 300; 
+    font-size: 13pt;
+}
+
+
+/* text styling */
+strong {
+  font-weight: 600;         
+}
+
+.warm {
+  color: steelblue;
+  text-align: justify;
+}
+
+.cool {
+  color: #ccccff;
+}
+
+h1 {
+  margin-top: 0px;
+}
+
+
+/* these are all the same for now, but easy to modify individually */
+#container-not-an-ad, #container-error, #container-exp, #container-consent, #container-instructions, #container-questionnaire {
+    background: white;
+    margin: 30px;
+}
+
+/* ad.html  - the ad that people view first */
+#adlogo {
+    width: 140px;
+    padding: 2px;
+    border: 1px solid #ccc;
+    margin-right: 1em;
+}
+
+/* consent.html - the consent form */
+#consent {
+  margin: 0 auto;
+  margin-top: 0;
+  width: 800px;
+  font-size: 100%;
+}
+
+.legal {
+  text-align: justify;
+  font-size: 11pt;
+  line-height: 1.1em;
+}
+
+#trial {
+  margin: 0 auto;
+  width: 800px;
+  text-align: center;
+}
+
+#query {
+  color: darkgray;
+}
+
+.question {
+  margin-bottom: 30px;
+}
+
+/* errors */
+#error img {
+  padding-right: 10px;
+  padding-top: 15px;
+}
+
+
+/* from ARC */
+
+
+#workspace {
+    width: 1410px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#demonstration_examples_view {
+    float: left;
+    width: 450px;
+    margin: 10px;
+    margin-right: 5px;
+    background-color: #d5d5d5;
+}
+
+#evaluation_view {
+    float: left;
+    width: 930px;
+    margin: 10px;
+    margin-left: 5px;
+    background-color: #d5d5d5;
+    min-height: 850px;
+}
+
+#evaluation-input-view {
+    float: left;
+    width: 400px;
+    margin: 10px;
+}
+
+#evaluation_output_editor {
+    float: left;
+    width: 500px;
+    margin-bottom: 20px;
+}
+
+#load_task_control_btns {
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 0;
+    background: white;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#editor_grid_control_btns {
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: white;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#resize_control_btns {
+    width: 100%;
+    float:left;
+    margin-bottom: 10px;
+}
+
+#submit_solution_btn {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: rgb(28, 184, 65);
+}
+
+#submit_solution_btn:active {
+  background: blue;
+}
+
+button:focus {outline:0;}
+
+#output_grid {
+
+}
+
+#toolbar {
+    float: left;
+    margin-left: 10px;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    width: 100%;
+
+}
+
+#symbol_picker {
+    float: left;
+    margin-left: 20px;
+    width: 100%;
+}
+
+.symbol_preview {
+    width: 25px;
+    height: 25px;
+    float: left;
+}
+
+label {
+    margin-left: 10px;
+}
+
+input, button {
+    margin-left: 10px;
+}
+
+#resize_btn {
+    margin-left: 0;
+}
+
+/*Task demonstration*/
+
+.pair_preview {
+    height: 200px;
+    padding: 5px;
+    border-bottom: solid 1px #a1a1a1;
+}
+.input_preview {
+    height: 200px;
+    width: 200px;
+    float: left;
+}
+.output_preview {
+    height: 200px;
+    width: 200px;
+    float: left;
+    margin-left: 35px;
+}
+
+.text {
+    text-align: center;
+    background: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.instrimg {
+    width: 100%;
+}
+.instrimg2 {
+    width: 100%;
+    margin: 10px;
+}
+
+#task_demo_header {
+    margin: 10px;
+}
+
+#modal_bg {
+    background-color: black;
+    width: 100%;
+    min-height: 10000px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+#modal {
+    margin: auto;
+    background-color: white;
+    text-align: center;
+    padding: 100px;
+    width: 500px;
+    margin-top: 100px;
+}
+
+#modal input {
+    margin-left: 70px;
+}
+
+#freeform_feedback {
+    min-width: 500px;
+    min-height: 100px;
+}

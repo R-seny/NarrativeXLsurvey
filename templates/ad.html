@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8" />
+		<title>Analogy Puzzles (Psychology Experiment)</title>
+		<link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css" />
+        <link rel="icon" href="/static/favicon.ico" />
+		<style type="text/css">
+			/* these tyles need to be defined locally */
+			body {
+			    padding:0px;
+			    margin: 0px;
+			    background-color: white;
+			    color: black;
+			    font-weight: 300;
+			    font-size: 13pt;
+			}
+
+			/* ad.html  - the ad that people view first */
+			#adlogo {
+			    width: 140px;
+			    padding: 2px;
+			    border: 1px solid #ccc;
+			    margin-right: 1em;
+			}
+
+            #container-not-an-ad { /* obtuse name because pesky ad-blocker extensions */
+				background: white;
+			    margin: 30px;
+			}
+
+			h1 {
+				margin-top: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container-not-an-ad" class="media">
+			<div class="media-left pull-left" href="#">
+						<img id="adlogo" src="{{ server_location }}/static/images/university.png" alt="Lab Logo" />
+			</div>
+			<div class="media-body">
+
+							{% if assignmentid == "ASSIGNMENT_ID_NOT_AVAILABLE" %}
+
+							    <h1>Call for participants</h1>
+							    <p>
+									A group of researchers from the Santa Fe Institute is looking for online participants
+									for a brief psychology experiment. The only requirements
+									are that you are at least 18 years old, are a fluent English
+									speaker, and have a normal or corrected-to-normal vision (that is, you can see colour normally, and if you need glasses or contact lenses, you are wearing them when doing the experiment). The task will take 45 minutes and will pay $9.99 upon completion.
+							    </p>
+							    <div class="alert alert-danger">
+									<strong>This task can only be completed once.</strong>
+									If you have already completed this task before the system will not
+									allow you to run again. If this looks familiar please return the
+									task so someone else can participate.
+							    </div>
+							    <p>
+								    Otherwise, please feel free to begin the task.
+								</p>
+
+
+							{% else %}
+
+							    <h1>Thank you for accepting this task!</h1>
+							    <p>
+							    	By clicking the following URL link, you will be taken to the experiment,
+							        including complete instructions and an informed consent agreement.
+							    </p>
+							    <script type="text/javascript">
+									function openwindow() {
+							    		popup = window.open('{{ server_location }}/consent?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}','Popup','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width='+1024+',height='+768+'');
+							  		}
+							    </script>
+							    <div class="alert alert-warning">
+							    	<b>Warning</b>: Please disable pop-up blockers before continuing.
+							    </div>
+
+						    	<button type="button" class="btn btn-primary btn-lg" onClick="openwindow();">
+								  Begin Experiment
+								</button>
+
+
+							{% endif %}
+			</div>
+		</div>
+	</body>
+</html>
