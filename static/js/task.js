@@ -89,6 +89,13 @@ function saveProlificID() {
 ********************/
 var ARC_experiment = function() {
 
+    // Load the stage.html snippet into the body of the page
+	psiTurk.showPage('testing_interface.html');
+
+    //$("#submit_answer").on("click", mySubmitSolution);
+
+    //$('.testing_interface_body').on('click', "#submit_answer", mySubmitSolution);
+
 	function myRandomTask() {
         phase_to_record = "SummaryClassification";
         TRUE_SUMMARY_IS_FIRST = Math.random() < 0.5;
@@ -116,8 +123,7 @@ var ARC_experiment = function() {
                                      "TRUE_SUMMARY_IS_FIRST": TRUE_SUMMARY_IS_FIRST,
                                      'current_true_sum': current_true_sum,
                                      'current_fake_sum': current_fake_sum,
-                                     'current_snippet': current_snippet,
-                                     'answerIsCorrect': null // no answer yet, irrelevant. Generally "No" - incorrect, "Yes" - correct
+                                     'current_snippet': current_snippet
                                      }
                                    );
         psiTurk.saveData();
@@ -125,65 +131,71 @@ var ARC_experiment = function() {
 
 	function mySubmitSolution() {
 
-        /// TODO!!!!
-        var firstSummaryDisplayed = 0 // save for redundancy
-	    var evaluatedFirstSummaryAsBad = 0
-		var evaluatedFalseSummaryAsBad = 0
-		var evaluatedTrueSummaryAsGood = 0
-		var preferredTrueSummary = 0
-		/// TODO!!!!
+        var firstSummaryDisplayed = $("#summary1").html() // save for redundancy
+        var secondSummaryDisplayed = $("#summary1").html() // save for redundancy
+        var firstSummaryAnswer = $("#sum1accurate").find(":selected").val();
+        var secondSummaryAnswer = $("#sum2accurate").find(":selected").val();
+        var preferredSummaryAnswer = $("#whichmore").find(":selected").val();
 
-        if (false) {
-            psiTurk.recordTrialData({'phase':phase_to_record,
-                                     'trial_type': "problem_presented",
-                                     'current_true_sum': current_true_sum,
-                                     'current_fake_sum': current_fake_sum,
-                                     'current_snippet': current_snippet,
-                                     'evaluatedFalseSummaryAsBad': evaluatedFalseSummaryAsBad,
-                                     "evaluatedTrueSummaryAsGood": evaluatedTrueSummaryAsGood,
-                                     "preferredTrueSummary": preferredTrueSummary,
-                                     'answerIsCorrect': null // no answer yet, irrelevant. Generally "No" - incorrect, "Yes" - correct
-                                     }
-                                   );
+        if (firstSummaryAnswer == "No answer" || secondSummaryAnswer == "No answer" || preferredSummaryAnswer == "No answer") {
+                $("#expl_warning").show().delay(7000).fadeOut(500);
+                //#alert("Please select an answer to each question. Please note that your work will be manually checked. Unrealistically fast submissions and low-effort submissions will be rejected.");
+                return
+        }
 
-            infoMsg('Correct solution!');
-		} else {
-		    psiTurk.recordTrialData({'phase':phase_to_record,
-                 'trial_type': "failed_attempt",
-                 'attempt': FAILED_ATTEMPTS + 1, // problem solved
-                 'test_subproblem_index': CURRENT_TEST_SUBPROBLEM,
-                 'currentProblem': CURRENT_PROBLEM_NAME,
-                 'tasks_done': TASKS_DONE,
-                 'failed_tasks': FAILED_TASKS,
-                 'answerIsCorrect': "Yes",
-                 'reference_output': reference_output,
-                 'submitted_output': submitted_output
-                 }
-               );
+        if (TRUE_SUMMARY_IS_FIRST) {
+            evaluatedTrueSummaryAsGood = (firstSummaryAnswer == "Yes" ? 1 : 0)
+            evaluatedFalseSummaryAsBad = (secondSummaryAnswer == "No" ? 1 : 0)
+            preferredTrueSummary = (preferredSummaryAnswer == "First" ? 1 : 0)
+        } else {
+            evaluatedTrueSummaryAsGood = (secondSummaryAnswer == "Yes" ? 1 : 0)
+            evaluatedFalseSummaryAsBad = (firstSummaryAnswer == "No" ? 1 : 0)
+            preferredTrueSummary = (preferredSummaryAnswer == "Second" ? 1 : 0)
+        }
 
-		}
+
+
+        psiTurk.recordTrialData({'phase':phase_to_record,
+                                 'trial_type': "answer_given",
+                                 'firstSummaryDisplayed': firstSummaryDisplayed,
+                                 'secondSummaryDisplayed': secondSummaryDisplayed,
+                                 'firstSummaryAnswer': firstSummaryAnswer,
+                                 'secondSummaryAnswer': secondSummaryAnswer,
+                                 'preferredSummaryAnswer': preferredSummaryAnswer,
+                                 "TRUE_SUMMARY_IS_FIRST": TRUE_SUMMARY_IS_FIRST,
+                                 'current_true_sum': current_true_sum,
+                                 'current_fake_sum': current_fake_sum,
+                                 'current_snippet': current_snippet,
+                                 'evaluatedFalseSummaryAsBad': evaluatedFalseSummaryAsBad,
+                                 "evaluatedTrueSummaryAsGood": evaluatedTrueSummaryAsGood,
+                                 "preferredTrueSummary": preferredTrueSummary
+                                 }
+                               );
+
 
 		psiTurk.saveData();
 
-		//$("#edition_view").hide();
-		//$("#evaluation-input-view").hide()
 		TASKS_DONE = TASKS_DONE + 1;
         next();
+
 	};
 
-	$("#submit_answer").on("click", mySubmitSolution);
+
 
 	// Stimuli for a basic Stroop experiment
 
 	var next = function() {
 
 
+        $("#sum1accurate").val("No answer")
+        $("#sum2accurate").val("No answer")
+        $("#whichmore").val("No answer")
+        window.scrollTo(0, 0);
+        $("#expl_warning").hide();
 
-        $("#problem_type").html("Summary ")
         $("#problems_done").html(TASKS_DONE + 1);
         $("#problems_total").html(TOTAL_TASKS);
 
-		$("#text_description").val("")
 
 		if (TASKS_DONE == TOTAL_TASKS) {
 			finish();
@@ -191,6 +203,7 @@ var ARC_experiment = function() {
 		else {
 			myRandomTask();
 		}
+
 	};
 
 
@@ -199,21 +212,15 @@ var ARC_experiment = function() {
 	    currentview = new Questionnaire();
 	};
 
-
-	// Load the stage.html snippet into the body of the page
-	psiTurk.showPage('testing_interface.html');
-
-	setTimeout(() =>
+    setTimeout(() =>
 	{
 
 		$( () => {
 
-           var tmp = 19
-           })
-	}, 1)
+            $("#submit_answer").on("click", mySubmitSolution);
 
-
-
+        })
+	}, 2)
 	// Register the response handler that is defined above to handle any
 	// key down events.
 	//$("body").focus().keydown(response_handler);

@@ -4,6 +4,10 @@ body {
     min-width: 1410px;
 }
 */
+#snippet_text {
+    font-family: Times;
+    font-size: large;
+}
 
 #submit_answer {
     float: right;
@@ -240,7 +244,10 @@ input, button {
 
 #expl_warning_word {
     color: red;
-    size: 20px;
+    size: 30px;
+    font-size: 17px;
+    font-weight: bold;
+}
 }
 
 #task_demo_header {

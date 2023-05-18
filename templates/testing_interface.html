@@ -2,7 +2,7 @@
 
         <div id="workspace">
 
-            <div id="problem_counter_header" style="margin-left: 45%;">Survey progress: <span id="problems_done">1</span>/<span id="problems_total">10</span></div>
+            <div id="problem_counter_header">Survey progress: <span id="problems_done">1</span>/<span id="problems_total">10</span></div>
 
             <div id="original">
                 <h1 class="text" id="booksnippet">Book snippet</h1>
@@ -60,8 +60,8 @@
                         <div class="col-md-4">
                             <select id="whichmore" name="whichmore">
                                 <option value="No answer" SELECTED>No answer</option>
-                                <option value="1">Summary 1</option>
-                                <option value="2">Summary 2</option>
+                                <option value="First">Summary 1</option>
+                                <option value="Second">Summary 2</option>
                             </select>
                         </div>
                     </div>
@@ -70,5 +70,7 @@
          </div>
         <hr>
         <button id="submit_answer" class="btn btn-primary btn-lg"> Submit </button>
+        <div id="expl_warning" style="display:none">
+            <p id="expl_warning_word">Please select an answer to each question. Please note that your work will be manually checked. Unrealistically fast submissions and low-effort submissions will be rejected.</p>
+        </div>
 
-</div>
