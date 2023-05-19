@@ -120,6 +120,8 @@ var ARC_experiment = function() {
 
         psiTurk.recordTrialData({'phase':phase_to_record,
                                      'trial_type': "problem_presented",
+                                     'TASKS_DONE': TASKS_DONE,
+                                     'counterbalance': mycounterbalance,
                                      "TRUE_SUMMARY_IS_FIRST": TRUE_SUMMARY_IS_FIRST,
                                      'current_true_sum': current_true_sum,
                                      'current_fake_sum': current_fake_sum,
@@ -166,6 +168,8 @@ var ARC_experiment = function() {
                                  'current_true_sum': current_true_sum,
                                  'current_fake_sum': current_fake_sum,
                                  'current_snippet': current_snippet,
+                                 'TASKS_DONE': TASKS_DONE,
+                                 'counterbalance': mycounterbalance,
                                  'evaluatedFalseSummaryAsBad': evaluatedFalseSummaryAsBad,
                                  "evaluatedTrueSummaryAsGood": evaluatedTrueSummaryAsGood,
                                  "preferredTrueSummary": preferredTrueSummary
